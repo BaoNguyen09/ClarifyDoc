@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
+  "compilerOptions": {
+    // --- Basic Options ---
+    "target": "ESNext", // Compile to modern JavaScript
+    "module": "ESNext", // Use modern module system
+    "lib": ["ESNext", "DOM"], // Include standard libraries (adjust DOM if not needed in all packages)
+    "esModuleInterop": true, // Enables compatibility with CommonJS modules
+    "forceConsistentCasingInFileNames": true, // Prevents case-related inconsistencies
+
+    // --- Strictness ---
+    "strict": true, // Enable all strict type-checking options
+    "skipLibCheck": true, // Skip type checking of declaration files (.d.ts) for faster builds
+
+    // --- Module Resolution ---
+    "moduleResolution": "Bundler", // Mimics how modern bundlers (like Vite/Wrangler) resolve modules. Use 'Node' if needed for specific legacy cases.
+    "resolveJsonModule": true, // Allow importing JSON files
+    "allowJs": true, // Allow JavaScript files to be compiled (useful for gradual migration or 3rd party libs)
+    "checkJs": false, // Don't type-check JS files by default
+
+    // --- Output ---
+    "noEmit": true, // Base config doesn't emit files itself; individual projects will override this if needed
+    "isolatedModules": true // Ensures files can be safely compiled independently (good practice for Vite/bundlers)
+  },
+  "exclude": ["node_modules", "dist"] // Exclude these folders from compilation by default
+}
