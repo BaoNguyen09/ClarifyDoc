@@ -1,0 +1,24 @@
+{
+  "extends": "@clarifydoc/tsconfig/tsconfig-base.json",
+  "compilerOptions": {
+    // Override or add settings specific to the Worker (Cloudflare/Hono)
+    "module": "ESNext", // Should match base
+    "moduleResolution": "Bundler", // Should match base
+    "types": ["@cloudflare/workers-types"], // Add Cloudflare Worker types
+    "lib": ["ESNext"], // Worker doesn't need DOM typically
+    "jsx": "react-jsx", // Keep if using Hono's JSX middleware
+    "jsxImportSource": "hono/jsx", // Keep if using Hono's JSX middleware
+
+    "noEmit": true, // Wrangler handles emitting/building
+    "outDir": "dist", // Define output structure (even if Wrangler builds)
+    "rootDir": "src", // Define source root
+
+    // Optional: Add path aliases if desired
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@/*": ["./src/*"]
+    // }
+  },
+  "include": ["src"], // Specify source directory for this project
+  "exclude": ["node_modules", "dist"] // Exclude standard folders
+}
